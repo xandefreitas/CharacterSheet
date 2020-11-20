@@ -49,6 +49,7 @@ namespace CharacterSheet.Controllers
         [Route("jogador")]
         [Authorize(Roles = "Jogador, Mestre")]
         public string Jogador() => "Usuário do tipo Jogador";
+        
 
         [HttpGet]
         [Route("mestre")]
