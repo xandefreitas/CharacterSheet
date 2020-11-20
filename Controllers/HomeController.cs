@@ -10,7 +10,9 @@ using CharacterSheet.Repositories;
 
 namespace CharacterSheet.Controllers
 {
+    
     [Route("v1/account")]
+    //[AllowAnonymous]
     public class HomeController : ControllerBase
     {
         [HttpPost]
