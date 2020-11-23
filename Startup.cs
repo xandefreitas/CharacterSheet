@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CharacterSheet.Interfaces;
+using CharacterSheet.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +35,11 @@ namespace CharacterSheet
             
             services.AddCors();
             services.AddControllers();
+
+            string connectionString = "Host=postgres.evilsummit.com.br; Port=5432; Username=usr025; Password=2Uc9eJrRj4; Database=db025";
+            services.AddDbContext<DatabaseContext>((options) => options.UseNpgsql(connectionString));
+
+            services.AddScoped(typeof(ICharacterRepository), typeof(CharacterRepository));
 
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
             services.AddAuthentication(x =>

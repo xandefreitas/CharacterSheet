@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using CharacterSheet.Services;
 using CharacterSheet.Repositories;
+using CharacterSheet.Interfaces;
 
 namespace CharacterSheet.Controllers
 {
@@ -15,6 +16,12 @@ namespace CharacterSheet.Controllers
     //[AllowAnonymous]
     public class HomeController : ControllerBase
     {
+        private readonly ICharacterRepository _characterRepository;
+        public HomeController(ICharacterRepository charRepo)
+        {
+            _characterRepository = charRepo;
+        }
+
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
@@ -35,6 +42,22 @@ namespace CharacterSheet.Controllers
                 token = token
             };
         }
+
+        [HttpPost]
+        [Route("create")]
+        [Authorize(Roles="Jogador, Mestre")]
+        public IActionResult Create([FromBody] Personagem personagem)
+        {
+            if (personagem == null)
+            {
+                return BadRequest();
+            }
+
+            _characterRepository.Add(personagem);
+            return CreatedAtRoute("lista_personagem", new {id=personagem.Id}, personagem);
+            
+        }
+               
         [HttpGet]
         [Route("anonymous")]
         [AllowAnonymous]
@@ -46,6 +69,14 @@ namespace CharacterSheet.Controllers
         public string Authenticated() => String.Format("Autenticado - Usuário {0}", User.Identity.Name);
 
         [HttpGet]
+        [Route("lista")]
+        [Authorize]
+        public IEnumerable<Personagem> GetAll()
+        {
+            return _characterRepository.GetAll();
+        }
+
+        [HttpGet]
         [Route("jogador")]
         [Authorize(Roles = "Jogador, Mestre")]
         public string Jogador() => "Usuário do tipo Jogador";
@@ -55,6 +86,8 @@ namespace CharacterSheet.Controllers
         [Route("mestre")]
         [Authorize(Roles = "Mestre")]
         public string Mestre() => "Usuário do tipo Mestre";
+
+
 
     }
 }

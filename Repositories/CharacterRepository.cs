@@ -1,33 +1,50 @@
 using System.Collections.Generic;
 using System.Linq;
+using CharacterSheet.Interfaces;
 using CharacterSheet.Models;
 
 namespace CharacterSheet.Repositories
 {
-    public static class CharacterRepository
+    public class CharacterRepository : ICharacterRepository
     {
-        public static Personagem Get(string nome, string criador, string raça, string classe, string historia)
+        private DatabaseContext context;
+        public CharacterRepository(DatabaseContext ctx)
         {
-            var personagens = new List<Personagem>();
-            personagens.Add(new Personagem 
-            {
-                Id = 1, 
-                Nome = "Legolas", 
-                Criador = "Username", 
-                Raça = "Jogador", 
-                Classe = "Elf", 
-                Historia = "Descrição do Elfo"
-            });
-            personagens.Add(new Personagem 
-            {
-                Id = 2, 
-                Nome = "Getafix", 
-                Criador = "Username", 
-                Raça = "Mestre", 
-                Classe = "Druid", 
-                Historia = "Descrição do Druida"
-            });
-            return personagens.Where(x => x.Nome == nome && x.Criador == criador).FirstOrDefault();
+            context = ctx;
+        }
+        public void Add(Personagem personagem)
+        {
+            context.Personagens.Add(personagem);
+            context.SaveChanges();
+        }
+        public List<Personagem> GetAll()
+        {
+            return context.Personagens.ToList();
+        }
+
+        public Personagem GetOne(long id)
+        {
+            return context.Personagens.Where((p) => p.Id == id).SingleOrDefault();
+        }
+
+        public void Remove(Personagem personagem)
+        {
+            context.Personagens.Remove(personagem);
+            context.SaveChanges();
+        }
+
+        public Personagem Save(Personagem personagem)
+        {
+            context.Personagens.Add(personagem);
+            context.SaveChanges();
+            return personagem;
+        }
+
+        public Personagem Update(Personagem personagem)
+        {
+            context.Personagens.Update(personagem);
+            context.SaveChanges();
+            return personagem;
         }
     }
 }
