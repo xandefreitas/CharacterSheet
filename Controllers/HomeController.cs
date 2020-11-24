@@ -54,7 +54,7 @@ namespace CharacterSheet.Controllers
             }
 
             _characterRepository.Add(personagem);
-            return CreatedAtRoute("lista_personagem", new {id=personagem.Id}, personagem);
+            return CreatedAtRoute("GetLista", new {id=personagem.Id}, personagem);
             
         }
                
@@ -69,7 +69,7 @@ namespace CharacterSheet.Controllers
         public string Authenticated() => String.Format("Autenticado - Usuário {0}", User.Identity.Name);
 
         [HttpGet]
-        [Route("lista")]
+        [Route("lista", Name = "GetLista")]
         [Authorize]
         public IEnumerable<Personagem> GetAll()
         {

@@ -7,7 +7,7 @@ namespace CharacterSheet
     public class DatabaseContext : DbContext
     {
         public DbSet<Personagem> Personagens { get; set; }
-        //public DbSet<Comment> Comments { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
