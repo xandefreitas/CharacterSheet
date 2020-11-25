@@ -76,6 +76,32 @@ namespace CharacterSheet.Controllers
             return _characterRepository.GetAll();
         }
 
+        [HttpGet("{id}", Name = "GetPersonagem")]
+        [Authorize]
+        public IActionResult GetOne(long id)
+        {
+            var persona = _characterRepository.GetOne(id);
+            if(persona==null)
+            {
+                return NotFound();
+            }
+            return new ObjectResult(persona);
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Mestre")]
+        public IActionResult Remove(long id)
+        {
+            var persona = _characterRepository.GetOne(id);
+
+            if (persona==null)
+            {
+                return NotFound();
+            }
+            _characterRepository.Remove(persona);
+            return new NoContentResult();
+        }
+
         [HttpGet]
         [Route("jogador")]
         [Authorize(Roles = "Jogador, Mestre")]
