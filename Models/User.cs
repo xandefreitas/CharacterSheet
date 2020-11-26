@@ -11,7 +11,7 @@ namespace CharacterSheet.Models
         public string Username {get; set; }
         [Column("password")]
         public string Password {get; set; }
-        [Column("Role")]
+        [Column("role")]
         public string Role {get; set; }
 
     }

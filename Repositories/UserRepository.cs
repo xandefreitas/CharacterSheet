@@ -1,11 +1,18 @@
 using System.Collections.Generic;
 using System.Linq;
+using CharacterSheet.Interfaces;
 using CharacterSheet.Models;
 
 namespace CharacterSheet.Repositories
 {
-    public static class UserRepository
+    public class UserRepository
     {
+        private DatabaseContext context;
+        public UserRepository(DatabaseContext ctx)
+        {
+            context = ctx;
+        }
+        
         public static User Get(string username, string password)
         {
             var users = new List<User>();

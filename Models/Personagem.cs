@@ -17,6 +17,8 @@ namespace CharacterSheet.Models
         [Column("classe")]
         public string Classe {get; set; }
         [Column("historia")]
-        public string Historia{get; set; }
+        public string Historia {get; set; }
+        [Column("pv")]
+        public int Vida {get; set; }
     }
 }
