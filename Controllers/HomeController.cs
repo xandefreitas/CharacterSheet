@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CharacterSheet.Models;
 using System;
 using Microsoft.AspNetCore.Authorization;
-using System.Linq;
 using CharacterSheet.Services;
 using CharacterSheet.Repositories;
 using CharacterSheet.Interfaces;
@@ -54,7 +52,7 @@ namespace CharacterSheet.Controllers
             }
 
             _characterRepository.Add(personagem);
-            return CreatedAtRoute("GetLista", new {id=personagem.Id}, personagem);
+            return CreatedAtRoute("GetPersonagem", new {id=personagem.Id}, personagem);
             
         }
                
@@ -69,7 +67,7 @@ namespace CharacterSheet.Controllers
         public string Authenticated() => String.Format("Autenticado - Usuário {0}", User.Identity.Name);
 
         [HttpGet]
-        [Route("lista", Name = "GetLista")]
+        [Route("lista")]
         [Authorize]
         public IEnumerable<Personagem> GetAll()
         {

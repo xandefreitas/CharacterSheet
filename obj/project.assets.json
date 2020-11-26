@@ -8192,7 +8192,6 @@
       "Microsoft.AspNetCore.Authentication >= 2.2.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.10",
       "Microsoft.AspNetCore.Mvc >= 2.2.0",
-      "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 3.1.4"
     ]
   },
@@ -8242,10 +8241,6 @@
             "version": "[3.1.10, )"
           },
           "Microsoft.AspNetCore.Mvc": {
-            "target": "Package",
-            "version": "[2.2.0, )"
-          },
-          "Microsoft.AspNetCore.Razor.Design": {
             "target": "Package",
             "version": "[2.2.0, )"
           },

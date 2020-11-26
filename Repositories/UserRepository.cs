@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using CharacterSheet.Models;
@@ -25,11 +24,6 @@ namespace CharacterSheet.Repositories
                 Role = "Mestre"
             });
             return users.Where(x => x.Username.ToLower() == username.ToLower() && x.Password == x.Password).FirstOrDefault();
-        }
-
-        internal static string Get(object username)
-        {
-            throw new NotImplementedException();
         }
     }
 }
