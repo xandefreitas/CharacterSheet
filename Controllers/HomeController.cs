@@ -68,14 +68,14 @@ namespace CharacterSheet.Controllers
 
         [HttpGet]
         [Route("lista")]
-        [Authorize]
+        [AllowAnonymous]
         public IEnumerable<Personagem> GetAll()
         {
             return _characterRepository.GetAll();
         }
 
         [HttpGet("{id}", Name = "GetPersonagem")]
-        [Authorize]
+        [AllowAnonymous]
         public IActionResult GetOne(long id)
         {
             var persona = _characterRepository.GetOne(id);
