@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 using CharacterSheet.Services;
 using CharacterSheet.Repositories;
 using CharacterSheet.Interfaces;
+using Refit;
+using System.Threading.Tasks;
 
 namespace CharacterSheet.Controllers
 {
@@ -19,7 +21,7 @@ namespace CharacterSheet.Controllers
         }
         [HttpPost]
         [Route("create")]
-        [Authorize(Roles="Jogador, Mestre")]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles="Jogador, Mestre")]
         public IActionResult Create([FromBody] Personagem personagem)
         {
             if (personagem == null)
@@ -53,8 +55,31 @@ namespace CharacterSheet.Controllers
             return new ObjectResult(persona);
         }
 
+        [HttpGet("raça/{name}")]
+        [AllowAnonymous]
+        public async Task<Caracteristicas> Get([FromRoute] string name,[FromBody] Caracteristicas raça)
+        {
+            
+
+            var charSpecs = RestService.For<ICaracteristicas>("https://www.dnd5eapi.co/api/");
+
+            var raçaInformada = raça.Name;
+            if (raçaInformada == null)
+            {
+                Console.WriteLine("Raça não encontrada");
+            }
+            Console.WriteLine("Consultando informações da raça:" + raçaInformada);
+
+            var InfoRaça = await charSpecs.GetAddressAsync(raçaInformada);
+
+            //Console.Write($"\nRaça: {InfoRaça.Name}\nEnvelhecimento: {InfoRaça.Age}\nAlinhamento: {InfoRaça.Alignment}\nTamanho: {InfoRaça.Size_description}");
+            
+            return InfoRaça;
+            
+        }
+
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Mestre")]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Mestre")]
         public IActionResult Remove(long id)
         {
             var persona = _characterRepository.GetOne(id);
@@ -66,5 +91,6 @@ namespace CharacterSheet.Controllers
             _characterRepository.Remove(persona);
             return new NoContentResult();
         }
+        
     }
 }
