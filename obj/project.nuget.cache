@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "O6lMZNuH2M/A1Jjb0Vic5NPWQlJQXGLOgxM90hoEuCy7KjWwjgdN160qtxnmDsv9tqB2GM2K66Y+2GBeEY3W0Q==",
+  "dgSpecHash": "95iLUlRowbK6xuBGyzZC74Ewkl48Crva7XhP/NRRfWGz+nME+Zu05dWkA7SHtvY47ULVifZMOGwwcXSx4/bpmw==",
   "success": true,
   "projectFilePath": "C:\\Users\\xande\\Desktop\\Profissional\\Solutis\\API_CharacterSheet\\CharacterSheet\\CharacterSheet.csproj",
   "expectedPackageFiles": [
@@ -94,6 +94,7 @@
     "C:\\Users\\xande\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
     "C:\\Users\\xande\\.nuget\\packages\\npgsql\\4.1.3.1\\npgsql.4.1.3.1.nupkg.sha512",
     "C:\\Users\\xande\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\3.1.4\\npgsql.entityframeworkcore.postgresql.3.1.4.nupkg.sha512",
+    "C:\\Users\\xande\\.nuget\\packages\\refit\\6.0.0-preview.37\\refit.6.0.0-preview.37.nupkg.sha512",
     "C:\\Users\\xande\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\xande\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\xande\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -171,6 +172,7 @@
     "C:\\Users\\xande\\.nuget\\packages\\system.text.encoding.codepages\\4.3.0\\system.text.encoding.codepages.4.3.0.nupkg.sha512",
     "C:\\Users\\xande\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\xande\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
+    "C:\\Users\\xande\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512",
     "C:\\Users\\xande\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
     "C:\\Users\\xande\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\xande\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",

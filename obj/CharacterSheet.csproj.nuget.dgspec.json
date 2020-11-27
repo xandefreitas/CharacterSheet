@@ -53,6 +53,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "refit": {
+              "target": "Package",
+              "version": "[6.0.0-preview.37, )"
             }
           },
           "imports": [

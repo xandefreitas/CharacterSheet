@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CharacterSheet.Models
@@ -5,7 +6,7 @@ namespace CharacterSheet.Models
     [Table("lista_personagem")]
     public class Personagem
     {
-                
+        [Key]       
         [Column("id")]
         public long Id {get; set; }
         [Column("nome")]

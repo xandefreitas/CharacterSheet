@@ -14,12 +14,7 @@ namespace CharacterSheet.Controllers
     //[AllowAnonymous]
     public class HomeController : ControllerBase
     {
-        //private readonly ICharacterRepository _characterRepository;
 
-        /*public HomeController(ICharacterRepository charRepo)
-        {
-            _characterRepository = charRepo;
-        }*/
 
 
         [HttpPost]

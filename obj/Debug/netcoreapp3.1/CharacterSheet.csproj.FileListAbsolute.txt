@@ -56,3 +56,6 @@ C:\Users\xande\Desktop\Profissional\Solutis\API_CharacterSheet\CharacterSheet\bi
 C:\Users\xande\Desktop\Profissional\Solutis\API_CharacterSheet\CharacterSheet\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\xande\Desktop\Profissional\Solutis\API_CharacterSheet\CharacterSheet\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\xande\Desktop\Profissional\Solutis\API_CharacterSheet\CharacterSheet\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\xande\Desktop\Profissional\Solutis\API_CharacterSheet\CharacterSheet\obj\Debug\netcoreapp3.1\RefitStubs.g.cs
+C:\Users\xande\Desktop\Profissional\Solutis\API_CharacterSheet\CharacterSheet\bin\Debug\netcoreapp3.1\Refit.dll
+C:\Users\xande\Desktop\Profissional\Solutis\API_CharacterSheet\CharacterSheet\bin\Debug\netcoreapp3.1\System.Text.Json.dll
