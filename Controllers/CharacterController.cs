@@ -52,31 +52,20 @@ namespace CharacterSheet.Controllers
             {
                 return NotFound();
             }
-            return new ObjectResult(persona);
-        }
-
-        [HttpGet("raça/{name}")]
-        [AllowAnonymous]
-        public async Task<Caracteristicas> Get([FromRoute] string name,[FromBody] Caracteristicas raça)
-        {
-            
-
             var charSpecs = RestService.For<ICaracteristicas>("https://www.dnd5eapi.co/api/");
-
-            var raçaInformada = raça.Name;
-            if (raçaInformada == null)
+            var classSpecs = RestService.For<IClasses>("https://www.dnd5eapi.co/api/");
+            
+            if (string.IsNullOrWhiteSpace(persona.Raça) || string.IsNullOrWhiteSpace(persona.Classe))
             {
-                Console.WriteLine("Raça não encontrada");
+                Console.WriteLine("Raça ou Classe não encontrada");
             }
-            Console.WriteLine("Consultando informações da raça:" + raçaInformada);
-
-            var InfoRaça = await charSpecs.GetAddressAsync(raçaInformada);
-
-            //Console.Write($"\nRaça: {InfoRaça.Name}\nEnvelhecimento: {InfoRaça.Age}\nAlinhamento: {InfoRaça.Alignment}\nTamanho: {InfoRaça.Size_description}");
             
-            return InfoRaça;
+            var InfoRaça = charSpecs.GetAddressAsync(persona.Raça).Result;
+            var InfoClasse = classSpecs.GetAddressAsync(persona.Classe).Result;
             
-        }
+
+            return new ObjectResult(new{persona = persona, raca = InfoRaça, classe = InfoClasse});
+        }      
 
         [HttpDelete("{id}")]
         [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Mestre")]

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using CharacterSheet.Models;
 using Refit;
@@ -9,5 +8,6 @@ namespace CharacterSheet.Interfaces
     {
         [Get("/races/{name}")]
         Task<Caracteristicas> GetAddressAsync(string name);
+
     }
 }
